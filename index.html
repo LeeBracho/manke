@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福州满课科技有限公司 - 首页</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 自定义样式文件 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 配置Tailwind自定义主题 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CBCB',
+                        dark: '#333333',
+                        light: '#F5F7FA',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- 公司标志 -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">满</span>
+                    </div>
+                    <span class="text-xl font-bold text-dark">福州满课科技</span>
+                </a>
+                
+                <!-- 桌面导航菜单 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link active-nav text-primary font-medium">首页</a>
+                    <a href="about.html" class="nav-link text-dark hover:text-primary font-medium">关于我们</a>
+                    <a href="services.html" class="nav-link text-dark hover:text-primary font-medium">服务项目</a>
+                    <a href="contact.html" class="nav-link text-dark hover:text-primary font-medium">联系我们</a>
+                </div>
+                
+                <!-- 联系按钮 -->
+                <a href="contact.html" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                    咨询合作
+                </a>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-button" class="md:hidden text-dark">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-primary font-medium py-2">首页</a>
+                <a href="about.html" class="block text-dark hover:text-primary font-medium py-2">关于我们</a>
+                <a href="services.html" class="block text-dark hover:text-primary font-medium py-2">服务项目</a>
+                <a href="contact.html" class="block text-dark hover:text-primary font-medium py-2">联系我们</a>
+                <a href="contact.html" class="block bg-primary text-white px-4 py-2 rounded-full font-medium text-center">
+                    咨询合作
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 md:pr-12 fade-in">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight mb-6 text-dark">
+                        创新科技<br>
+                        <span class="text-primary">赋能未来</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                        福州满课科技有限公司致力于为企业提供前沿的技术解决方案，帮助您的业务实现数字化转型和可持续发展。
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="services.html" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                            了解服务
+                        </a>
+                        <a href="contact.html" class="bg-white border border-primary text-primary hover:bg-primary/5 px-6 py-3 rounded-full font-medium transition-all duration-300">
+                            联系我们
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0 fade-in delay-200">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/180/800/600" alt="科技解决方案" class="rounded-2xl shadow-xl w-full h-auto">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg hidden md:block">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                    <i class="fa fa-lightbulb-o text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">创新思维</p>
+                                    <p class="text-sm text-gray-500">引领行业发展</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-lg hidden md:block">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                                    <i class="fa fa-cogs text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">专业服务</p>
+                                    <p class="text-sm text-gray-500">解决实际问题</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司特色 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 text-dark">为什么选择满课科技</h2>
+                <p class="text-gray-600">我们拥有专业的技术团队和丰富的行业经验，为客户提供全方位的技术支持和服务</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 特色1 -->
+                <div class="bg-light rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <i class="fa fa-rocket text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">技术创新</h3>
+                    <p class="text-gray-600">我们持续关注行业最新技术发展，不断创新和优化解决方案，确保为客户提供最前沿的技术支持。</p>
+                </div>
+                
+                <!-- 特色2 -->
+                <div class="bg-light rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-6">
+                        <i class="fa fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">专业团队</h3>
+                    <p class="text-gray-600">我们的团队成员拥有丰富的行业经验和专业技能，能够为客户提供专业的咨询和解决方案。</p>
+                </div>
+                
+                <!-- 特色3 -->
+                <div class="bg-light rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <i class="fa fa-handshake-o text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">客户至上</h3>
+                    <p class="text-gray-600">我们始终将客户需求放在首位，提供个性化的解决方案和贴心的服务，确保客户满意度。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务概述 -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center mb-16">
+                <div class="md:w-1/2 md:pr-12">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 text-dark">我们的核心服务</h2>
+                    <p class="text-gray-600 mb-8">为您的企业提供全方位的技术支持和解决方案，助力业务增长和数字化转型</p>
+                    <a href="services.html" class="inline-flex items-center text-primary font-medium hover:underline">
+                        查看全部服务
+                        <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/20/600/400" alt="核心服务" class="rounded-2xl shadow-lg">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg hidden md:block">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <p class="font-medium">专业可靠</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 服务项目1 -->
+                <div class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">软件开发</h3>
+                        <p class="text-gray-600">定制化的软件开发服务，包括Web应用、移动应用和企业解决方案等。</p>
+                    </div>
+                </div>
+                
+                <!-- 服务项目2 -->
+                <div class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                        <i class="fa fa-laptop"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">IT咨询服务</h3>
+                        <p class="text-gray-600">专业的IT战略规划和咨询服务，帮助企业优化IT架构和流程。</p>
+                    </div>
+                </div>
+                
+                <!-- 服务项目3 -->
+                <div class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">网络安全</h3>
+                        <p class="text-gray-600">全面的网络安全解决方案，保护企业数据和系统安全。</p>
+                    </div>
+                </div>
+                
+                <!-- 服务项目4 -->
+                <div class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                        <i class="fa fa-cloud"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">云计算服务</h3>
+                        <p class="text-gray-600">灵活的云计算解决方案，包括云迁移、云管理和云优化等。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户反馈 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 text-dark">客户的声音</h2>
+                <p class="text-gray-600">听听我们的客户怎么说，他们的成功就是我们最大的动力</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 客户反馈1 -->
+                <div class="bg-light rounded-xl p-8 shadow-sm border border-gray-100">
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"满课科技为我们提供了专业的软件开发服务，他们的团队不仅技术过硬，而且非常注重细节，按时完成了项目并超出了我们的预期。"</p>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://picsum.photos/id/64/200" alt="客户头像" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-bold">张先生</p>
+                            <p class="text-sm text-gray-500">某科技公司CEO</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 客户反馈2 -->
+                <div class="bg-light rounded-xl p-8 shadow-sm border border-gray-100">
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"感谢满课科技团队为我们提供的IT咨询服务，他们的专业建议帮助我们优化了IT架构，提高了工作效率，降低了运营成本。"</p>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://picsum.photos/id/65/200" alt="客户头像" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-bold">李女士</p>
+                            <p class="text-sm text-gray-500">某金融公司CIO</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 客户反馈3 -->
+                <div class="bg-light rounded-xl p-8 shadow-sm border border-gray-100">
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"满课科技的网络安全解决方案非常专业，他们帮助我们识别并解决了潜在的安全隐患，让我们的业务运营更加安心。"</p>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://picsum.photos/id/91/200" alt="客户头像" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-bold">王先生</p>
+                            <p class="text-sm text-gray-500">某教育机构CTO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="py-16 bg-primary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 text-dark">准备好开启合作了吗？</h2>
+                <p class="text-gray-600 mb-8">联系我们，了解更多关于我们如何帮助您的企业实现数字化转型和业务增长</p>
+                <a href="contact.html" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                    立即联系我们
+                </a>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- 联系方式1 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                        <i class="fa fa-map-marker text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">公司地址</h3>
+                    <p class="text-gray-600">福建省福州市鼓楼区科技园区</p>
+                </div>
+                
+                <!-- 联系方式2 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                        <i class="fa fa-phone text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">联系电话</h3>
+                    <p class="text-gray-600">0591-12345678</p>
+                </div>
+                
+                <!-- 联系方式3 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                        <i class="fa fa-envelope-o text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">电子邮箱</h3>
+                    <p class="text-gray-600">contact@manke-tech.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 公司信息 -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
+                            <span class="text-primary font-bold text-xl">满</span>
+                        </div>
+                        <span class="text-xl font-bold">福州满课科技</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">专业的科技服务提供商，致力于为企业提供全方位的技术支持和解决方案。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 快速链接 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">服务项目</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 服务项目 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">服务项目</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html#software" class="text-gray-400 hover:text-white transition-colors">软件开发</a></li>
+                        <li><a href="services.html#consulting" class="text-gray-400 hover:text-white transition-colors">IT咨询服务</a></li>
+                        <li><a href="services.html#security" class="text-gray-400 hover:text-white transition-colors">网络安全</a></li>
+                        <li><a href="services.html#cloud" class="text-gray-400 hover:text-white transition-colors">云计算服务</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 联系信息 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa fa-map-marker text-gray-400 mt-1"></i>
+                            <span class="text-gray-400">福建省福州市鼓楼区科技园区</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa fa-phone text-gray-400"></i>
+                            <span class="text-gray-400">0591-12345678</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa fa-envelope-o text-gray-400"></i>
+                            <span class="text-gray-400">contact@manke-tech.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 福州满课科技有限公司 版权所有</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 通用脚本 -->
+    <script src="common.js"></script>
+    
+    <!-- 页面特定脚本 -->
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置当前导航项为活动状态
+            setActiveNavItem();
+            
+            // 初始化平滑滚动效果
+            initSmoothScroll();
+            
+            // 初始化滚动动画
+            initScrollAnimations();
+        });
+    </script>
+</body>
+</html>

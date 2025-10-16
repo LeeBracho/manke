@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务项目 - 福州满课科技有限公司</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 自定义样式文件 -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- 自定义 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CBCB',
+                        dark: '#333333',
+                        light: '#F5F7FA'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #165DFF 0%, #36CBCB 100%);
+            }
+            /* 服务卡片悬停效果 */
+            .service-card {
+                transition: all 0.3s ease;
+            }
+            .service-card:hover {
+                transform: translateY(-10px);
+            }
+            /* 流程步骤样式 */
+            .step-circle::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 40px;
+                height: calc(100% - 40px);
+                width: 2px;
+                background-color: #165DFF;
+                transform: translateX(-50%);
+            }
+            .step-circle:last-child::before {
+                height: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- 公司标志 -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">满</span>
+                    </div>
+                    <span class="text-xl font-bold text-dark">福州满课科技</span>
+                </a>
+                
+                <!-- 桌面导航菜单 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-dark hover:text-primary font-medium">首页</a>
+                    <a href="about.html" class="nav-link text-dark hover:text-primary font-medium">关于我们</a>
+                    <a href="services.html" class="nav-link active-nav text-primary font-medium">服务项目</a>
+                    <a href="contact.html" class="nav-link text-dark hover:text-primary font-medium">联系我们</a>
+                </div>
+                
+                <!-- 联系按钮 -->
+                <a href="contact.html" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                    咨询合作
+                </a>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-button" class="md:hidden text-dark">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-dark hover:text-primary font-medium py-2">首页</a>
+                <a href="about.html" class="block text-dark hover:text-primary font-medium py-2">关于我们</a>
+                <a href="services.html" class="block text-primary font-medium py-2">服务项目</a>
+                <a href="contact.html" class="block text-dark hover:text-primary font-medium py-2">联系我们</a>
+                <a href="contact.html" class="block bg-primary text-white px-4 py-2 rounded-full font-medium text-center">
+                    咨询合作
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-center text-dark">服务项目</h1>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mt-4">我们提供全方位的技术解决方案，助力企业实现数字化转型和业务增长</p>
+        </div>
+    </section>
+
+    <!-- 服务类别 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 服务类别1 -->
+                <div class="bg-light rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary/20 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 mx-auto">
+                        <i class="fa fa-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">软件开发</h3>
+                    <p class="text-gray-600">定制化的软件开发服务</p>
+                </div>
+                
+                <!-- 服务类别2 -->
+                <div class="bg-light rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary/20 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-4 mx-auto">
+                        <i class="fa fa-laptop text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">IT咨询服务</h3>
+                    <p class="text-gray-600">专业的IT战略规划和咨询</p>
+                </div>
+                
+                <!-- 服务类别3 -->
+                <div class="bg-light rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary/20 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 mx-auto">
+                        <i class="fa fa-shield text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">网络安全</h3>
+                    <p class="text-gray-600">全面的网络安全解决方案</p>
+                </div>
+                
+                <!-- 服务类别4 -->
+                <div class="bg-light rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary/20 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-4 mx-auto">
+                        <i class="fa fa-cloud text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">云计算服务</h3>
+                    <p class="text-gray-600">灵活的云计算解决方案</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 软件开发服务 -->
+    <section id="software" class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 md:pr-12 mb-10 md:mb-0">
+                    <div class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        核心服务
+                    </div>
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 text-dark">软件开发</h2>
+                    <p class="text-gray-600 mb-6">
+                        我们提供定制化的软件开发服务，根据客户的具体需求，开发高质量、高性能的软件产品。我们的开发团队拥有丰富的经验和专业的技能，能够满足各种复杂的业务需求。
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">Web应用开发：响应式设计，跨平台兼容，提供优质的用户体验</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">移动应用开发：iOS和Android平台应用开发，提供原生或混合应用解决方案</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">企业应用开发：定制化的企业管理系统，提高企业运营效率</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">软件维护与升级：提供持续的技术支持和软件升级服务</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                        了解更多
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://picsum.photos/id/0/800/600" alt="软件开发服务" class="rounded-2xl shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IT咨询服务 -->
+    <section id="consulting" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 md:order-2 md:pl-12 mb-10 md:mb-0">
+                    <div class="inline-block bg-secondary/10 text-secondary px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        专业服务
+                    </div>
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 text-dark">IT咨询服务</h2>
+                    <p class="text-gray-600 mb-6">
+                        我们的IT咨询团队拥有丰富的行业经验和专业知识，能够为企业提供全面的IT战略规划和咨询服务，帮助企业优化IT架构和流程，提高IT系统的效率和安全性。
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">IT战略规划：根据企业业务目标，制定符合企业发展的IT战略</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">IT架构评估与优化：评估现有IT架构，提供优化建议和实施方案</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">数字化转型咨询：帮助企业制定数字化转型战略和实施路径</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">IT项目管理咨询：提供专业的项目管理咨询和支持服务</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                        了解更多
+                    </a>
+                </div>
+                <div class="md:w-1/2 md:order-1">
+                    <img src="https://picsum.photos/id/180/800/600" alt="IT咨询服务" class="rounded-2xl shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 网络安全服务 -->
+    <section id="security" class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 md:pr-12 mb-10 md:mb-0">
+                    <div class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        安全保障
+                    </div>
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 text-dark">网络安全</h2>
+                    <p class="text-gray-600 mb-6">
+                        我们提供全面的网络安全解决方案，保护企业的数据和系统安全。我们的安全团队拥有专业的安全知识和丰富的实践经验，能够识别和解决各种安全威胁和隐患。
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">网络安全评估：全面评估企业网络安全状况，识别潜在风险</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">安全防护系统建设：部署防火墙、入侵检测系统等安全设备</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">数据加密与备份：保护企业敏感数据，建立完善的数据备份和恢复机制</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">安全培训与意识提升：提供安全培训，提高员工安全意识</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                        了解更多
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://picsum.photos/id/160/800/600" alt="网络安全服务" class="rounded-2xl shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 云计算服务 -->
+    <section id="cloud" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 md:order-2 md:pl-12 mb-10 md:mb-0">
+                    <div class="inline-block bg-secondary/10 text-secondary px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        灵活高效
+                    </div>
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 text-dark">云计算服务</h2>
+                    <p class="text-gray-600 mb-6">
+                        我们提供灵活的云计算解决方案，帮助企业降低IT成本，提高IT系统的灵活性和可扩展性。我们的云计算团队拥有丰富的云平台经验，能够为企业提供专业的云迁移、云管理和云优化服务。
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">云迁移服务：将企业现有系统迁移到云平台，确保迁移过程安全可靠</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">云资源管理：优化云资源配置，降低云成本，提高资源利用率</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">云安全管理：确保云环境安全，防止数据泄露和安全事件</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-white shrink-0 mt-1">
+                                <i class="fa fa-check text-xs"></i>
+                            </div>
+                            <p class="text-gray-600">混合云解决方案：根据企业需求，提供公有云、私有云和混合云解决方案</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                        了解更多
+                    </a>
+                </div>
+                <div class="md:w-1/2 md:order-1">
+                    <img src="https://picsum.photos/id/201/800/600" alt="云计算服务" class="rounded-2xl shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务流程 -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 text-dark">我们的服务流程</h2>
+                <p class="text-gray-600">标准化的服务流程，确保项目顺利实施和交付</p>
+            </div>
+            
+            <div class="relative">
+                <!-- 流程线 -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20 hidden md:block"></div>
+                
+                <!-- 流程步骤1 -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                            <div class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium mb-3">
+                                步骤 01
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3">需求分析</h3>
+                            <p class="text-gray-600">深入了解客户需求，明确项目目标和范围，制定详细的需求文档。</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hidden md:flex">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 flex justify-center md:justify-start">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <img src="https://picsum.photos/id/237/300/200" alt="需求分析" class="rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 流程步骤2 -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0 flex justify-center md:justify-end order-2 md:order-1">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <img src="https://picsum.photos/id/1/300/200" alt="方案设计" class="rounded-lg">
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hidden md:flex">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <div class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium mb-3">
+                                步骤 02
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3">方案设计</h3>
+                            <p class="text-gray-600">根据需求分析结果，设计详细的技术方案和实施计划。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 流程步骤3 -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                            <div class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium mb-3">
+                                步骤 03
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3">项目实施</h3>
+                            <p class="text-gray-600">按照设计方案和实施计划，进行项目开发和实施工作。</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hidden md:flex">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 flex justify-center md:justify-start">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <img src="https://picsum.photos/id/160/300/200" alt="项目实施" class="rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 流程步骤4 -->
+                <div class="relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0 flex justify-center md:justify-end order-2 md:order-1">
+                            <div class="bg-white p-6 rounded-xl shadow-lg">
+                                <img src="https://picsum.photos/id/20/300/200" alt="测试验收" class="rounded-lg">
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hidden md:flex">
+                            <i class="fa fa-check-circle"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <div class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium mb-3">
+                                步骤 04
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3">测试验收</h3>
+                            <p class="text-gray-600">进行全面的测试工作，确保项目质量，然后交付客户验收。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="py-16 bg-primary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 text-dark">需要我们的服务？</h2>
+                <p class="text-gray-600 mb-8">联系我们，了解更多关于我们如何帮助您的企业实现数字化转型和业务增长</p>
+                <a href="contact.html" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                    立即联系我们
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 公司信息 -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
+                            <span class="text-primary font-bold text-xl">满</span>
+                        </div>
+                        <span class="text-xl font-bold">福州满课科技</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">专业的科技服务提供商，致力于为企业提供全方位的技术支持和解决方案。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 快速链接 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">服务项目</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 服务项目 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">服务项目</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html#software" class="text-gray-400 hover:text-white transition-colors">软件开发</a></li>
+                        <li><a href="services.html#consulting" class="text-gray-400 hover:text-white transition-colors">IT咨询服务</a></li>
+                        <li><a href="services.html#security" class="text-gray-400 hover:text-white transition-colors">网络安全</a></li>
+                        <li><a href="services.html#cloud" class="text-gray-400 hover:text-white transition-colors">云计算服务</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 联系信息 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa fa-map-marker text-gray-400 mt-1"></i>
+                            <span class="text-gray-400">福建省福州市鼓楼区科技园区</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa fa-phone text-gray-400"></i>
+                            <span class="text-gray-400">0591-12345678</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa fa-envelope-o text-gray-400"></i>
+                            <span class="text-gray-400">contact@manke-tech.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 福州满课科技有限公司 版权所有</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 通用脚本 -->
+    <script src="common.js"></script>
+    
+    <!-- 页面特定脚本 -->
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置当前导航项为活动状态
+            setActiveNavItem();
+            
+            // 初始化平滑滚动效果
+            initSmoothScroll();
+            
+            // 初始化滚动动画
+            initScrollAnimations();
+        });
+    </script>
+</body>
+</html>

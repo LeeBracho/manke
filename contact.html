@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 福州满课科技有限公司</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 自定义样式文件 -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- 自定义 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CBCB',
+                        dark: '#333333',
+                        light: '#F5F7FA'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #165DFF 0%, #36CBCB 100%);
+            }
+            /* FAQ 手风琴效果 */
+            .faq-item.active .faq-answer {
+                max-height: 200px;
+                margin-top: 1rem;
+            }
+            .faq-item.active .faq-icon {
+                transform: rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- 公司标志 -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">满</span>
+                    </div>
+                    <span class="text-xl font-bold text-dark">福州满课科技</span>
+                </a>
+                
+                <!-- 桌面导航菜单 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-dark hover:text-primary font-medium">首页</a>
+                    <a href="about.html" class="nav-link text-dark hover:text-primary font-medium">关于我们</a>
+                    <a href="services.html" class="nav-link text-dark hover:text-primary font-medium">服务项目</a>
+                    <a href="contact.html" class="nav-link active-nav text-primary font-medium">联系我们</a>
+                </div>
+                
+                <!-- 联系按钮 -->
+                <a href="contact.html" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                    咨询合作
+                </a>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-button" class="md:hidden text-dark">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-dark hover:text-primary font-medium py-2">首页</a>
+                <a href="about.html" class="block text-dark hover:text-primary font-medium py-2">关于我们</a>
+                <a href="services.html" class="block text-dark hover:text-primary font-medium py-2">服务项目</a>
+                <a href="contact.html" class="block text-primary font-medium py-2">联系我们</a>
+                <a href="contact.html" class="block bg-primary text-white px-4 py-2 rounded-full font-medium text-center">
+                    咨询合作
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-center text-dark">联系我们</h1>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mt-4">有任何问题或合作意向，请随时与我们联系，我们将尽快回复您</p>
+        </div>
+    </section>
+
+    <!-- 联系信息和表单 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- 联系信息 -->
+                <div class="bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold mb-8 text-dark">联系方式</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- 公司地址 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                <i class="fa fa-map-marker text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-1">公司地址</h3>
+                                <p class="text-gray-600">福建省福州市鼓楼区科技园区</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 联系电话 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                <i class="fa fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-1">联系电话</h3>
+                                <p class="text-gray-600">0591-12345678</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 电子邮箱 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                <i class="fa fa-envelope-o text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-1">电子邮箱</h3>
+                                <p class="text-gray-600">contact@manke-tech.com</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 工作时间 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                <i class="fa fa-clock-o text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-1">工作时间</h3>
+                                <p class="text-gray-600">周一至周五: 9:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 社交媒体 -->
+                    <div class="mt-10">
+                        <h3 class="text-lg font-semibold mb-4">关注我们</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+                                <i class="fa fa-weixin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+                                <i class="fa fa-weibo"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+                                <i class="fa fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 联系表单 -->
+                <div class="bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold mb-6 text-dark">发送消息</h2>
+                    <p class="text-gray-600 mb-8">请填写下面的表单，我们的团队将尽快与您联系</p>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- 姓名 -->
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                                <input type="text" id="name" name="name" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary transition-colors" placeholder="请输入您的姓名" required>
+                            </div>
+                            
+                            <!-- 电话 -->
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">电话</label>
+                                <input type="tel" id="phone" name="phone" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary transition-colors" placeholder="请输入您的联系电话" required>
+                            </div>
+                        </div>
+                        
+                        <!-- 电子邮箱 -->
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">电子邮箱</label>
+                            <input type="email" id="email" name="email" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary transition-colors" placeholder="请输入您的电子邮箱" required>
+                        </div>
+                        
+                        <!-- 主题 -->
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">主题</label>
+                            <select id="subject" name="subject" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary transition-colors" required>
+                                <option value="" disabled selected>请选择咨询主题</option>
+                                <option value="software">软件开发</option>
+                                <option value="consulting">IT咨询服务</option>
+                                <option value="security">网络安全</option>
+                                <option value="cloud">云计算服务</option>
+                                <option value="other">其他问题</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 消息内容 -->
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">消息内容</label>
+                            <textarea id="message" name="message" rows="5" class="form-textarea w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary transition-colors" placeholder="请输入您的消息内容" required></textarea>
+                        </div>
+                        
+                        <!-- 提交按钮 -->
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                            发送消息
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司地图 -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 text-dark">我们的位置</h2>
+                <p class="text-gray-600">欢迎前来参观访问，我们位于福州市鼓楼区科技园区</p>
+            </div>
+            
+            <div class="map-container shadow-lg">
+                <!-- 这里使用了一个占位图，实际项目中可以替换为真实的地图嵌入代码 -->
+                <img src="https://picsum.photos/id/1018/1200/400" alt="公司位置地图" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 text-dark">常见问题</h2>
+                <p class="text-gray-600">查看一些客户经常咨询的问题，如果您有其他疑问，请随时联系我们</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-light rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
+                        <span class="text-lg font-semibold">你们的项目交付周期一般是多久？</span>
+                        <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">项目交付周期取决于项目的规模和复杂性。小型项目通常需要2-4周，中型项目需要1-3个月，大型项目可能需要3个月以上。我们会在项目开始前提供详细的时间估计，并定期向您汇报项目进展。</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="bg-light rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
+                        <span class="text-lg font-semibold">你们提供哪些类型的售后服务？</span>
+                        <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">我们提供全面的售后服务，包括系统维护、功能升级、技术支持等。所有项目交付后都有3-6个月的免费维护期，期间我们将解决任何系统运行中出现的问题。维护期结束后，您可以选择我们的年度维护服务。</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="bg-light rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
+                        <span class="text-lg font-semibold">你们是否提供定制化的解决方案？</span>
+                        <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">是的，我们主要提供定制化的解决方案。我们会根据您的具体需求和业务流程，为您设计和开发最适合您企业的系统。我们的团队将与您紧密合作，确保最终交付的产品完全满足您的期望。</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="bg-light rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
+                        <span class="text-lg font-semibold">如何开始一个新项目的合作？</span>
+                        <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">要开始一个新项目的合作，您可以通过电话、电子邮件或在线表单与我们联系。我们会安排一次初步的需求沟通会议，了解您的具体需求和期望。然后我们会提供详细的项目方案和报价。一旦方案和报价得到您的认可，我们将开始项目的实施工作。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 公司信息 -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
+                            <span class="text-primary font-bold text-xl">满</span>
+                        </div>
+                        <span class="text-xl font-bold">福州满课科技</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">专业的科技服务提供商，致力于为企业提供全方位的技术支持和解决方案。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 快速链接 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">服务项目</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 服务项目 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">服务项目</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html#software" class="text-gray-400 hover:text-white transition-colors">软件开发</a></li>
+                        <li><a href="services.html#consulting" class="text-gray-400 hover:text-white transition-colors">IT咨询服务</a></li>
+                        <li><a href="services.html#security" class="text-gray-400 hover:text-white transition-colors">网络安全</a></li>
+                        <li><a href="services.html#cloud" class="text-gray-400 hover:text-white transition-colors">云计算服务</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 联系信息 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa fa-map-marker text-gray-400 mt-1"></i>
+                            <span class="text-gray-400">福建省福州市鼓楼区科技园区</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa fa-phone text-gray-400"></i>
+                            <span class="text-gray-400">0591-12345678</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa fa-envelope-o text-gray-400"></i>
+                            <span class="text-gray-400">contact@manke-tech.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 福州满课科技有限公司 版权所有</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 通用脚本 -->
+    <script src="common.js"></script>
+    
+    <!-- 页面特定脚本 -->
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置当前导航项为活动状态
+            setActiveNavItem();
+            
+            // 初始化平滑滚动效果
+            initSmoothScroll();
+            
+            // 初始化滚动动画
+            initScrollAnimations();
+            
+            // 初始化FAQ手风琴效果
+            initFAQAccordion();
+            
+            // 初始化表单验证
+            initFormValidation('contact-form');
+        });
+    </script>
+</body>
+</html>
